@@ -19,17 +19,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($categories as $category)
+                        @foreach($categories as $category)
                             <tr>
                                 <td>{{ $category->name }}</td>
-                                <td><a href="{{ route('categories.edit', $category) }}">Edit</a></td>
+                                <td><a href="{{ route('categories.edit', $category) }}">Edit</a>
                                 <form method="POST" action="{{ route('categories.destroy', $category) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" onClick="return confirm('Are you sure?')">Delete</button>
                                 </form>
+                                </td>
                             </tr>
-                            @endforeach
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
